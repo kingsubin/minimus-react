@@ -1,4 +1,4 @@
-const { User } = require("../models/User");
+import User from "../models/User.js";
 
 const auth = (req, res, next) => {
   const token = req.cookies.x_auth;
@@ -13,4 +13,4 @@ const auth = (req, res, next) => {
   });
 };
 
-module.exports = { auth };
+export default auth;
