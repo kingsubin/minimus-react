@@ -1,11 +1,11 @@
-const express = require("express");
+import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import config from "./config/key.js";
+import auth from "./middleware/auth.js";
+import User from "./models/User.js";
+import mongoose from "mongoose";
 const app = express();
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const config = require("./config/key");
-
-const { auth } = require("./middleware/auth");
-const { User } = require("./models/User");
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-const mongoose = require("mongoose");
 mongoose
   .connect(config.mongoURI, {
     useNewUrlParser: true,

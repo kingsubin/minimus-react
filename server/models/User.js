@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 const saltRounds = 10;
-const jwt = require("jsonwebtoken");
 
 // 에러때문에 따로 추가
 mongoose.set("useCreateIndex", true);
@@ -83,4 +83,4 @@ userSchema.statics.findByToken = function (token, cb) {
 };
 
 const User = mongoose.model("User", userSchema);
-module.exports = { User };
+export default User;
